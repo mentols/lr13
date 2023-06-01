@@ -1,0 +1,24 @@
+BEGIN;
+ALTER TABLE Routes ADD COLUMN departure_time TIME;
+ALTER TABLE Routes ALTER COLUMN distance TYPE DECIMAL(10,2);
+COMMIT;
+
+BEGIN;
+ALTER TABLE Drivers ADD COLUMN phone_number VARCHAR(20);
+ALTER TABLE Drivers DROP COLUMN experience;
+COMMIT;
+
+BEGIN;
+ALTER TABLE Transportations ADD COLUMN departure_date DATE;
+ALTER TABLE Transportations RENAME COLUMN arrival_date TO delivery_date;
+COMMIT;
+
+BEGIN;
+ALTER TABLE Salaries ADD COLUMN bonus_amount DECIMAL(10,2);
+ALTER TABLE Salaries ALTER COLUMN salary_type TYPE VARCHAR(20);
+COMMIT;
+
+BEGIN;
+ALTER TABLE Bonuses ADD COLUMN bonus_date DATE;
+ALTER TABLE Bonuses DROP COLUMN reason;
+COMMIT;
